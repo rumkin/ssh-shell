@@ -34,7 +34,6 @@ Object.setPrototypeOf(SshShell.prototype, Shell.prototype);
 
 SshShell.prototype.open = function () {
     if (this.conn) {
-        // TODO (rumkin) Recommend to disconnect first?
         throw new Error('Connection is opened');
     }
 
