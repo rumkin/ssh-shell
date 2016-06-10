@@ -1,0 +1,9 @@
+node_modules
+npm-debg.log
+
+*.pid
+local
+coverage
+tmp
+
+**/.DS_Store
