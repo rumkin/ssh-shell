@@ -23,15 +23,20 @@ const shell = new SshShell({
     cwd: '/home/user',
 });
 
-shell.set('NAME', 'World');
-shell.exec('echo Hello $NAME')
-.then(result => {
-    var {code, io} = result;
-    if (code) {
-        throw new Error('Exit code is ' + code);
-    }
+shell.open()
+.then(() => {    
+    shell.set('NAME', 'World');
+    shell.exec('echo Hello $NAME')
+    .then(result => {
+        var {code, io} = result;
+        if (code) {
+            throw new Error('Exit code is ' + code);
+        }
 
-    console.log(io.toString()); // -> Hello World
+        console.log(io.toString()); // -> Hello World
+
+        return shell.close();
+    });
 });
 ```
 
