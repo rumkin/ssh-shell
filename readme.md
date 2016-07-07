@@ -27,8 +27,7 @@ shell.open()
 .then(() => {    
     shell.set('NAME', 'World');
     shell.exec('echo Hello $NAME')
-    .then(result => {
-        var {code, io} = result;
+    .then(({code, io}) => {
         if (code) {
             throw new Error('Exit code is ' + code);
         }
